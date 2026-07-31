@@ -7,6 +7,22 @@ document.addEventListener('mousemove', (e) => {
   heart.style.top = e.clientY + 'px';
 });
 
+const music = document.getElementById('bg-music');
+let musicStarted = false;
+
+function startMusic() {
+  if (!musicStarted) {
+    music.play().then(() => {
+      musicStarted = true;
+    }).catch((err) => {
+      console.log('Playback blocked:', err);
+    });
+  }
+}
+
+window.addEventListener('scroll', startMusic);
+window.addEventListener('click', startMusic);
+
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
