@@ -22,6 +22,7 @@ function startMusic() {
 
 window.addEventListener('scroll', startMusic);
 window.addEventListener('click', startMusic);
+window.addEventListener('touchstart', startMusic);
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
